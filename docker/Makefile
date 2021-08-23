@@ -7,7 +7,7 @@ BASE_IMAGE := torcs_client_base_image
 BASE_BUILD_IMAGE := torcs_client_build_image
 RUNTIME_BASE_IMAGE_TAG := 18.04
 RUNTIME_BASE_IMAGE := $(BASE_IMAGE)
-CLIENT_RUNTIME_IMAGE_TAG := torcs_client
+CLIENT_RUNTIME_IMAGE_TAG := torcs_client_${USER}
 
 LABELS += 	--label org.opencontainers.image.created="$(shell date --rfc-3339=seconds)" \
         	--label org.opencontainers.image.source=${TORCS_CLIENT_REPO} \

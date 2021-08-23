@@ -4,6 +4,8 @@ MAKEFLAGS += --no-print-directory
 
 PWD = $(shell pwd)
 
+USER := $(shell docker/github_user.sh)
+
 TORCS_CLIENT_REPO := $(shell git ls-remote --get-url)
 
 .PHONY: help win win-clean linux linux-clean docker
@@ -13,6 +15,7 @@ help:
 	@echo '| TORCS Client Makefile'
 	@echo '|'
 	@echo '| Source of TORCS Client: $(TORCS_CLIENT_REPO)'
+	@echo '| Team Name: ${USER}'
 	@echo '|'
 	@echo '------------------------------------'
 	@echo '|'
