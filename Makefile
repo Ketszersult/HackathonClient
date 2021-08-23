@@ -2,9 +2,11 @@ export
 SHELL := /bin/bash
 MAKEFLAGS += --no-print-directory
 
+PWD = $(shell pwd)
+
 TORCS_CLIENT_REPO := $(shell git ls-remote --get-url)
 
-.PHONY: help
+.PHONY: help win win-clean linux linux-clean docker
 
 help:
 	@echo '------------------------------------'
