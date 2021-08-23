@@ -27,3 +27,26 @@ help:
 	@echo '| help                Shows this help'
 	@echo '|'
 	@echo '------------------------------------'
+
+base-image:
+	@echo ''
+	@echo '$@'
+	@echo ''
+	@echo ''
+	docker build \
+	-f docker/Dockerfile.base \
+	--network=host \
+	-t $(BASE_IMAGE) \
+	.
+
+base-build-image: base-image
+	@echo ''
+	@echo '$@'
+	@echo ''
+	@echo ''
+	docker build \
+	--build-arg base_image=${BASE_IMAGE} \
+	-f docker/Dockerfile.build \
+	--network=host \
+	-t $(BASE_BUILD_IMAGE) \
+	.
