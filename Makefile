@@ -19,6 +19,9 @@ help:
 	@echo '| win-clean      Clean Builds Windows Client'
 	@echo '| linux      	Builds Linux Client'
 	@echo '| linux-clean    Clean Builds Linux Client'
+	@echo '| docker     	Builds Linux Client in docker container'
+	@echo '------------------------------------'
+	@make -f docker/Makefile help
 
 win: 
 	@echo ''
@@ -48,4 +51,10 @@ linux-clean:
 	@echo ''
 	make -f Makefile.linux  clean 2>&1 | tee make.linux.log
 
+docker: 
+	@echo ''
+	@echo '$@'
+	@echo ''
+	@echo ''
+	make -f docker/Makefile build-all 2>&1 | tee make.win.log
 	
