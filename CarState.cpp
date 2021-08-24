@@ -38,7 +38,77 @@ CarState::CarState(string sensors)
         SimpleParser::parse(sensors, "wheelSpinVel", this->wheelSpinVel, 4);
         SimpleParser::parse(sensors, "z", this->z);
 }
-
+CarState::CarState(structCarState state){
+        this->angle = state.angle;
+        this->curLapTime = state.curLapTime;
+        this->damage = state.damage;
+        this->distFromStart = state.distFromStart;
+        this->distRaced = state.distRaced;
+        for(int i = 0; i < FOCUS_SENSORS_NUM; i++)
+        {
+                this->focus[i] = state.focus[i];
+        }
+        this->fuel = state.fuel;
+        this->gear = state.gear;
+        this->lastLapTime = state.lastLapTime;
+        for(int i = 0; i < OPPONENTS_SENSORS_NUM; i++)
+        {
+                this->opponents[i] = state.opponents[i];
+        }
+        this->racePos = state.racePos;
+        this->rpm = state.rpm;
+        this->speedX = state.speedX;
+        this->speedY = state.speedY;
+        this->speedZ = state.speedZ;
+        for(int i = 0; i < TRACK_SENSORS_NUM; i++)
+        {
+                this->track[i] = state.track[i];
+        }
+        this->trackPos = state.trackPos;
+        for(int i = 0; i < 4; i++)
+        {
+                this->wheelSpinVel[i] = state.wheelSpinVel[i];
+        }
+        this->z = state.z;
+}
+structCarState
+CarState::toStruct()
+{
+        structCarState state;
+        state.angle = this->angle;
+        state.curLapTime = this->curLapTime;
+        state.damage = this->damage;
+        state.distFromStart = this->distFromStart;
+        state.distRaced = this->distRaced;
+        for(int i = 0; i < FOCUS_SENSORS_NUM; i++)
+        {
+                state.focus[i] = this->focus[i];
+        }
+        state.fuel = this->fuel;
+        state.gear = this->gear;
+        state.lastLapTime = this->lastLapTime;
+        for(int i = 0; i < OPPONENTS_SENSORS_NUM; i++)
+        {
+                state.opponents[i] = this->opponents[i];
+        }
+        state.racePos = this->racePos;
+        state.rpm = this->rpm;
+        state.speedX = this->speedX;
+        state.speedY = this->speedY;
+        state.speedZ = this->speedZ;
+        for(int i = 0; i < TRACK_SENSORS_NUM; i++)
+        {
+                state.track[i] = this->track[i];
+        }
+        state.trackPos = this->trackPos;
+        for(int i = 0; i < 4; i++)
+        {
+                state.wheelSpinVel[i] = this->wheelSpinVel[i];
+        }
+        state.z = this->z;
+        //state.stage = RACE;
+        return state;
+}
 string
 CarState::toString()
 {

@@ -20,11 +20,16 @@
 
 using namespace std;
 
+#ifndef STAGE
+#define STAGE
+typedef enum{WARMUP,QUALIFYING,RACE,UNKNOWN} tstage;
+#endif
+
 class BaseDriver
 {
 public:
-	
-	typedef enum{WARMUP,QUALIFYING,RACE,UNKNOWN} tstage;
+
+
 
 	tstage stage;
 	char trackName[100];

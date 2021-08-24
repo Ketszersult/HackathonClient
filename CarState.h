@@ -25,6 +25,7 @@
 #include <cstring>
 #include <cassert>
 #include "SimpleParser.h"
+#include "Cdriver.h"
 
 using namespace std;
 
@@ -55,9 +56,13 @@ private:
 
 public:
 	
-		CarState(){};
+	CarState(){};
 
         CarState(string sensors);
+
+        CarState(structCarState state);
+
+        structCarState toStruct();
 
         string toString();
 

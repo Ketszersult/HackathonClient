@@ -23,7 +23,9 @@
 #include "CarControl.h"
 #include "SimpleParser.h"
 #include "WrapperBaseDriver.h"
-
+extern "C" {
+	#include "Cdriver.h"
+}
 #define PI 3.14159265
 
 using namespace std;
@@ -33,7 +35,7 @@ class SimpleDriver : public WrapperBaseDriver
 public:
 	
 	// Constructor
-	SimpleDriver(){stuck=0;clutch=0.0;};
+	SimpleDriver(){};
 
 	// SimpleDriver implements a simple and heuristic controller for driving
 	virtual CarControl wDrive(CarState cs);
@@ -70,6 +72,7 @@ private:
 	static const float steerSensitivityOffset;
 	// Coefficient to reduce steering command at high speed (to avoid loosing the control)
 	static const float wheelSensitivityCoeff;
+	static const float turnAngleMult;
 	
 	/* Accel and Brake Constants*/
 	
@@ -81,7 +84,7 @@ private:
 	static const float sin5;
 	// pre-computed cos5
 	static const float cos5;
-	
+	static const float turnSpeedMult;
 	/* ABS Filter Constants */
 	
 	// Radius of the 4 wheels of the car
@@ -102,12 +105,6 @@ private:
 	static const float clutchDec;
 	static const float clutchMaxModifier;
 	static const float clutchMaxTime;
-
-	// counter of stuck steps
-	int stuck;
-	
-	// current clutch
-	float clutch;
 
 	// Solves the gear changing subproblems
 	int getGear(CarState &cs);

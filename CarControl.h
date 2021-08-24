@@ -21,6 +21,7 @@
 #include <cstring>
 #include <cassert>
 #include "SimpleParser.h"
+#include "Cdriver.h"
 
 using namespace std;
 
@@ -55,6 +56,7 @@ public:
 
         CarControl(string sensors);
 
+        CarControl(structCarControl control);
         CarControl(float accel, float brake, int gear, float steer, float clutch, int focus, int meta=0);
         CarControl(float accel, float brake, int gear, float steer, float clutch, int focus=0);
 

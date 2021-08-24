@@ -39,7 +39,15 @@ CarControl::CarControl(float accel, float brake, int gear, float steer, float cl
 	this->focus = focus;
 	this->meta = 0;
 }
-
+CarControl::CarControl(structCarControl control){
+	this->accel = control.accel;
+	this->brake = control.brake;
+	this->gear  = control.gear;
+	this->steer = control.steer;
+	this->clutch = control.clutch;
+	this->focus = control.focus;
+	this->meta = control.meta;
+}
 CarControl::CarControl(string sensors)
 {
         fromString(sensors);
