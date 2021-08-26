@@ -14,7 +14,7 @@ LABELS += 	--label org.opencontainers.image.created="$(shell date --rfc-3339=sec
         	--label org.opencontainers.image.revision="$(shell git log -1 --format=%H)" \
         	--label org.opencontainers.image.version="$(shell git describe --tags --first-parent --always --dirty)"
 
-.PHONY: help base-image base-build-image run-build-image build-torcs-client
+.PHONY: help base-image base-build-image build-torcs-client build-runtime-image build-clean build-all
 
 help:
 	@echo '------------------------------------'
@@ -26,6 +26,7 @@ help:
 	@echo '------------------------------------'
 	@echo '|'
 	@echo '| help                Shows this help'
+	@echo '| build-all           Builds everything and cleans up'
 	@echo '|'
 	@echo '------------------------------------'
 
@@ -52,13 +53,6 @@ base-build-image: base-image
 	-t $(BASE_BUILD_IMAGE) \
 	.
 
-run-build-image: build-torcs-client
-	@echo ''
-	@echo '$@'
-	@echo ''
-	@echo ''
-	docker run -it --entrypoint /bin/bash -v $(SOURCE_DIR):/torcs_client $(BASE_BUILD_IMAGE)
-
 build-torcs-client: base-build-image
 	@echo ''
 	@echo '$@'
@@ -82,4 +76,7 @@ build-runtime-image: build-torcs-client
 		-f docker/Dockerfile.runtime \
 		${SOURCE_DIR}
 
-build-all: build-runtime-image
+build-clean:
+	@make -f Makefile.linux clean
+
+build-all: build-runtime-image build-clean
