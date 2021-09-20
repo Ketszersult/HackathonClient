@@ -17,4 +17,4 @@ Select the extension and click on the build icon.
 ![image](https://user-images.githubusercontent.com/50489798/133784385-7c0bb2be-48c3-4b9f-901e-49475dbf9a67.png)
 
 # Simulation Guide
-After this, start the game and navigate to Race->Quick Race->Configure Race. Here, if you choose a racetrack and click accept you should see "scr_server 1" as Selected player. When you finnish configuring the race, you can select "New Race". Now the race will start and it will wait for the client's connection. You have to start your compiled client now and it will connect to the server.
+Start the game and navigate to Race->Quick Race->Configure Race. Here, if you choose a racetrack and click accept you should see "scr_server 1" as Selected player. When you finnish configuring the race, you can select "New Race". Now the race will start and it will wait for the client's connection. You have to start your compiled client now and it will connect to the server.
