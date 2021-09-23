@@ -61,5 +61,5 @@ docker:
 	@echo '$@'
 	@echo ''
 	@echo ''
-	make -f docker/Makefile build-all 2>&1 | tee make.win.log
+	make -f docker/Makefile build-all 2>&1 | tee make.docker.log
 	

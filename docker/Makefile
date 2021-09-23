@@ -76,7 +76,7 @@ build-runtime-image: build-torcs-client
 		-f docker/Dockerfile.runtime \
 		${SOURCE_DIR}
 
-build-clean:
+build-clean: 
 	@make -f Makefile.linux clean
 
 build-all: build-runtime-image build-clean
