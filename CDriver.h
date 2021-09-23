@@ -1,3 +1,10 @@
+/* Your chosen car: <car></car>
+ * You have the option to choose from 3 different types of cars:
+ * - Nascar
+ * - Forma1
+ * - Supercar
+ * Please type the chosen one's name in the tag above (for example: <car>Nascar</car>)
+*/
 #ifndef CDRIVER_H_
 #define CDRIVER_H_
 
