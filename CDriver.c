@@ -286,6 +286,7 @@ void clutching(structCarState *cs, float *clutch)
   }
 }
 
+//gives 19 angles for the distance sensors
 void Cinit(float *angles)
 {
 

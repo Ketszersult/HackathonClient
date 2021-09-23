@@ -51,8 +51,8 @@ typedef struct {
         // meta-command
         int meta;
 
-  		// focus command [-90,90], i.e. angle of track sensor focus desired by client
-		int focus;
+  	// focus command [-90,90], i.e. angle of track sensor focus desired by client
+	int focus;
 
 } structCarControl;
 

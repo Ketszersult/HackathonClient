@@ -17,7 +17,7 @@
 //#define WIN32 // maybe not necessary because already define
 #define __DRIVER_CLASS__ WrapperBaseDriver     // put here the name of your driver class
 #define __DRIVER_INCLUDE__ "WrapperBaseDriver.h" // put here the filename of your driver h\\eader
-#define WIN32
+
 #ifdef WIN32
 #include <WinSock.h>
 #else
