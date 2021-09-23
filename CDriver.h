@@ -1,9 +1,11 @@
 /* Your chosen car: <car></car>
- * You have the option to choose from 3 different types of cars:
- * - Nascar
- * - Forma1
- * - Supercar
- * Please type the chosen one's name in the tag above (for example: <car>Nascar</car>)
+ * You have the option to choose from the builtin cars:
+ * 155-DTM, acura-nsx-sz, baja-bug, buggy, car1-ow1, car1-stock1, car1-trb1, car1-trb3, car2-trb1, car3-trb1, car4-trb1, car5-trb1, car6-trb1,
+ * car7-trb1, car8-trb1, kc-2000gt, kc-5300gt, kc-a110, kc-alfatz2, kc-bigh, kc-cobra, kc-coda, kc-conrero, kc-corvette-ttop, kc-daytona, kc-db4z,
+ * kc-dbs, kc-dino, kc-ghibli, kc-giulietta, kc-grifo, kc-gt40, kc-gto, kc-p4, p406, pw-206wrc, pw-306wrc, pw-corollawrc, pw-evoviwrc, pw-focuswrc,
+ * pw-imprezawrc
+ * 
+ * Please type the chosen one's name in the tag above (for example: <car>buggy</car>)
 */
 #ifndef CDRIVER_H_
 #define CDRIVER_H_
