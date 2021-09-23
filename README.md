@@ -9,12 +9,13 @@ Install the game to a path without any special characters (not even spaces are a
 
 Offical guide to server patch and how it works: https://arxiv.org/pdf/1304.1672.pdf
 # Compiling Guide
-Open the code with Visual Studio Code. You will need the "Makefile Tools" extension to build the software.
+Open the code with Visual Studio Code. You will need the "Makefile Tools" extension to build the software. You can install it by selecting "extenions" on the left side. Type in the extensions name and install it.
 
-The driving algorithm is located in the SimpleDriver.cpp file, you have to modify it to be better than the other teams.
+The driving algorithm is located in the CDriver.c file, you have to modify or completely rewrite it to be better than the other teams. The main function is the __CDrive__ which gets a __structCarState__ and replies with a __structCarControl__. You can find detailed information about the sensors and effectors on page 13-14 of the above mentioned official guide. There is also the __Cinit__ function which describes 19 angles where the distance sensors shall be located. You can modify this as well to fit your needs.
 
-Select the extension and click on the build icon.
-![image](https://user-images.githubusercontent.com/50489798/133784385-7c0bb2be-48c3-4b9f-901e-49475dbf9a67.png)
+If you are ready to build select the makefile tools extension, set the build target to all and click on the build icon.
+
+![build](build.PNG?raw=true)
 
 # Simulation Guide
-Start the game and navigate to Race->Quick Race->Configure Race. Here, if you choose a racetrack and click accept you should see "scr_server 1" as Selected player. When you finnish configuring the race, you can select "New Race". Now the race will start and it will wait for the client's connection. You have to start your compiled client now and it will connect to the server.
+Start the game and navigate to Race->Quick Race->Configure Race. Here, if you choose a racetrack and click accept you should see "scr_server 1" as Selected player. When you finnish configuring the race, you can select "New Race". Now the race will start and it will wait for the client's connection. You have to start your compiled client now(client.exe in your source folder) and it will connect to the server.
