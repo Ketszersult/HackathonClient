@@ -15,8 +15,8 @@
  ***************************************************************************/
 /* Uncomment the following lines under windows */
 //#define WIN32 // maybe not necessary because already define
-#define __DRIVER_CLASS__ SimpleDriver     // put here the name of your driver class
-#define __DRIVER_INCLUDE__ "SimpleDriver.h" // put here the filename of your driver h\\eader
+#define __DRIVER_CLASS__ WrapperBaseDriver     // put here the name of your driver class
+#define __DRIVER_INCLUDE__ "WrapperBaseDriver.h" // put here the filename of your driver h\\eader
 
 #ifdef WIN32
 #include <WinSock.h>
@@ -26,6 +26,7 @@
 #include <unistd.h>
 #endif
 
+#include "Typedefs.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -55,9 +56,9 @@ typedef __DRIVER_CLASS__ tDriver;
 using namespace std;
 
 //void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort, char *id, unsigned int &maxEpisodes,unsigned int &maxSteps,
-//		bool &noise, double &noiseAVG, double &noiseSTD, long &seed, char *trackName, BaseDriver::tstage &stage);
+//		bool &noise, double &noiseAVG, double &noiseSTD, long &seed, char *trackName, tstage &stage);
 void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort, char *id, unsigned int &maxEpisodes,
-		  unsigned int &maxSteps, char *trackName, BaseDriver::tstage &stage);
+		  unsigned int &maxSteps, char *trackName, tstage &stage);
 
 int main(int argc, char *argv[])
 {
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 //    double noiseSTD;
 //    long seed;
     char trackName[1000];
-    BaseDriver::tstage stage;
+    tstage stage;
 
     tSockAddrIn serverAddress;
     struct hostent *hostInfo;
@@ -131,11 +132,11 @@ int main(int argc, char *argv[])
 
     cout << "TRACKNAME: " << trackName << endl;
 
-    if (stage == BaseDriver::WARMUP)
+    if (stage == WARMUP)
 		cout << "STAGE: WARMUP" << endl;
-	else if (stage == BaseDriver::QUALIFYING)
+	else if (stage == QUALIFYING)
 		cout << "STAGE:QUALIFYING" << endl;
-	else if (stage == BaseDriver::RACE)
+	else if (stage == RACE)
 		cout << "STAGE: RACE" << endl;
 	else
 		cout << "STAGE: UNKNOWN" << endl;
@@ -294,9 +295,9 @@ int main(int argc, char *argv[])
 }
 
 //void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort, char *id, unsigned int &maxEpisodes,
-//		  unsigned int &maxSteps,bool &noise, double &noiseAVG, double &noiseSTD, long &seed, char *trackName, BaseDriver::tstage &stage)
+//		  unsigned int &maxSteps,bool &noise, double &noiseAVG, double &noiseSTD, long &seed, char *trackName, tstage &stage)
 void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort, char *id, unsigned int &maxEpisodes,
-		  unsigned int &maxSteps, char *trackName, BaseDriver::tstage &stage)
+		  unsigned int &maxSteps, char *trackName, tstage &stage)
 {
     int		i;
 
@@ -311,10 +312,11 @@ void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort
 //    noiseSTD=0.05;
 //    seed=0;
     strcpy(trackName,"unknown");
-    stage=BaseDriver::UNKNOWN;
+    stage = UNKNOWN;
 
 
     i = 1;
+    std::cout << argv;
     while (i < argc)
     {
     	if (strncmp(argv[i], "host:", 5) == 0)
@@ -356,10 +358,10 @@ void parse_args(int argc, char *argv[], char *hostName, unsigned int &serverPort
     	{
 				int temp;
     		   	sscanf(argv[i],"stage:%d",&temp);
-    		   	stage = (BaseDriver::tstage) temp;
+    		   	stage = (tstage) temp;
     	    	i++;
-    	    	if (stage<BaseDriver::WARMUP || stage > BaseDriver::RACE)
-					stage = BaseDriver::UNKNOWN;
+    	    	if (stage < WARMUP || stage > RACE)
+					stage = UNKNOWN;
     	}
     	else {
     		i++;		/* ignore bad args */
