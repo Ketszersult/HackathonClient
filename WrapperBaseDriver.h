@@ -16,21 +16,34 @@
 #ifndef WRAPPERBASEDRIVER_H_
 #define WRAPPERBASEDRIVER_H_
 
-#include "CarState.h"
-#include "CarControl.h"
-#include "BaseDriver.h"
+#include "SimpleParser.h"
+#include "CDriver.h"
+
 #include <cmath>
 #include <cstdlib>
 
-class WrapperBaseDriver : public BaseDriver
+class WrapperBaseDriver
 {
 public:
 	
-	// the drive function wiht string input and output
-	virtual string drive(string sensors);
+	// the drive function with string input and output
+	string drive(string sensors);
+
+	// Print a shutdown message 
+	void onShutdown();
 	
-	// drive function that exploits the CarState and CarControl wrappers as input and output.
-	virtual CarControl wDrive(CarState cs)=0;
+	// Print a restart message 
+	void onRestart();
+
+	// Initialization of the desired angles for the rangefinders
+	void init(float *angles);
+
+	tstage stage;
+
+	char trackName[100];
+
 };
+
+
 
 #endif /*WRAPPERBASEDRIVER_H_*/
