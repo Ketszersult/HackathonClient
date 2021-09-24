@@ -4,6 +4,8 @@ FROM ${base_image}
 
 COPY docker/entrypoint-build.sh /
 
+RUN chmod +x /entrypoint-build.sh
+
 ENTRYPOINT [ "/entrypoint-build.sh" ]
 
 CMD [ "" ]
