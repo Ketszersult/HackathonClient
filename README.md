@@ -1,7 +1,7 @@
 # Torcs Client Build
 This is the repository for the Thyssenkrupp __Engineering in high gear!__ chalanges TORCS Client source.
 
-## Befor starteing the developement of the client you schould setup the TORCS Server.
+## Before starting the developement of the client you should setup the TORCS Server.
 
 The source of the server can be found in this repo: [TORCS SERVER](https://github.com/fmirus/torcs-1.3.7.git)
 
